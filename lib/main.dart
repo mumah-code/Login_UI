@@ -7,7 +7,7 @@ class MyApp extends StatelessWidget {
   MyApp({super.key});
   // This widget is the root of your application.
   // text_editing controller
-  final usernameController = TextEditingController();
+  //final usernameController = TextEditingController();
   final passWord = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -55,7 +55,7 @@ class MyHomePage extends StatelessWidget {
               ),
             ),
             MyTextfield(
-              controller: usernameController,
+              controller: TextEditingController(),
               hintText: 'UserName',
               obscureText: false,
             ),
