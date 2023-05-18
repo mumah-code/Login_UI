@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:login/components/form_field.dart';
 import 'package:login/components/button.dart';
+import 'package:login/components/square_tile.dart';
 
 void main() => runApp(const MyApp());
 
@@ -33,6 +34,7 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[300],
       appBar: AppBar(
         // The title text which will be shown on the action bar
         title: Text(title),
@@ -86,6 +88,36 @@ class MyHomePage extends StatelessWidget {
                 ],
               ),
               Button(),
+              // or continue with
+              const SizedBox(height: 50),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Divider(
+                        thickness: 5,
+                      ),
+                    ),
+                    Text('Or Cotinue With'),
+                    Expanded(
+                      child: Divider(
+                        thickness: 5,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              // google or facebook sign-in
+              const SizedBox(height: 50.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Square(imagePath: 'lib/images/download_google.png'),
+                  const SizedBox(width: 8.0),
+                  Square(imagePath: 'lib/images/download_facebook.png'),
+                ],
+              ),
             ],
           ),
         ),
