@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:login/components/form_field.dart';
+import 'package:login/components/button.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
-  // This widget is the root of your application.
-  // text_editing controller
-  //final usernameController = TextEditingController();
-  final passWord = TextEditingController();
+  const MyApp({super.key});
+  // This widget is the root of your applicatio
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,14 +19,16 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       // A widget which will be started on application startup
-      home: const MyHomePage(title: 'Login Page'),
+      home: MyHomePage(title: 'Login Page'),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
   final String title;
-  const MyHomePage({super.key, required this.title});
+  final usernameController = TextEditingController();
+  final passWord = TextEditingController();
+  MyHomePage({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -39,33 +39,56 @@ class MyHomePage extends StatelessWidget {
       ),
       body: SafeArea(
         child: Center(
-            child: Column(
-          children: [
-            // icon
-            const Icon(
-              Icons.login,
-              size: 100,
-            ),
-            // welcome_text
-            const Text(
-              'Welcome to Our Page',
-              style: TextStyle(
-                color: Colors.blueGrey,
-                fontSize: 30,
+          child: Column(
+            children: [
+              // icon
+              const Icon(
+                Icons.person_2,
+                size: 100,
               ),
-            ),
-            MyTextfield(
-              controller: TextEditingController(),
-              hintText: 'UserName',
-              obscureText: false,
-            ),
-          ],
-        )
-
-            // text_form_field
-            //forgot passwprd
-            //
-            ),
+              // welcome_text
+              const Text(
+                'Welcome to Our Page',
+                style: TextStyle(
+                  color: Colors.blueGrey,
+                  fontSize: 30,
+                ),
+              ),
+              // user name field
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: MyTextfield(
+                  controller: usernameController,
+                  hintText: 'UserName',
+                  obscureText: false,
+                ),
+              ),
+              // password field
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: MyTextfield(
+                  controller: passWord,
+                  hintText: 'Enter Password',
+                  obscureText: true,
+                ),
+              ),
+              // forgot password
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    'Forgot Passwprd?',
+                    style: TextStyle(
+                      color: Colors.blue,
+                      fontSize: 15,
+                    ),
+                  ),
+                ],
+              ),
+              Button(),
+            ],
+          ),
+        ),
       ),
     );
   }
